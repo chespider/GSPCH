@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gran San Pedro Cholul</title>
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('./claseimg/pics/GSPC2.jpg'); /* Asegúrate de que la URL sea la correcta */
+      background-size: cover; /* Cubrir todo el espacio disponible */
+      background-position: center; /* Centrar la imagen de fondo */
+      background-attachment: fixed; /* Fondo fijo al hacer scroll */
+    }
+
+    /* Estilos para el menú */
+    .menu {
+      text-align: center;
+      background-color: #333;
+    }
+
+    .menu-item, .dropdown {
+      display: inline-block;
+    }
+    
+    .menu-item a, .dropbtn {
+      padding: 20px 20px;
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .menu-item a:hover, .dropdown:hover .dropbtn {
+      background-color: #555;
+      color: white;
+    }
+
+    /* ... (otros estilos) ... */
+
+    .ancho-especial .dropdown-content {
+      width: 140px; /* Puedes ajustar este valor según tus necesidades */
+    }
+
+    /* Estilos para los menús desplegables */
+    .dropdown {
+      position: relative;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      text-align: left;
+      background-color: #333;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      width: 100%;
+    }
+    
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #555;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+ /* Estilos del Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 100%;  /* Cambio clave: Usamos 'top' en lugar de 'bottom' */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: larger;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.tooltip::after {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Estilos para el submenú */
+.submenu:hover .submenu-content {
+    display: block;
+    position: absolute;
+    left: 100%;  /* Mueve el submenú a la derecha */
+    top: 0;      /* Alinea el submenú con su elemento padre */
+    min-width: 200px;  /* Puedes ajustar este valor según tus necesidades */
+    z-index: 1;
+}
+
+.submenu-content {
+    display: none;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let tooltips = document.querySelectorAll('[data-title]');
+        tooltips.forEach(function(tooltip) {
+            tooltip.classList.add('tooltip');
+        });
+    });
+</script>
+
+  <!-- Menú en la parte superior -->
+  <div class="menu">
+    <!-- Inicio -->
+    <div class="menu-item">
+      <a href="#inicio" data-title="Esta página fue creada por un grupo de vecinos para vecinos">Inicio</a>
+    </div>
+    
+    <!-- Negocios -->
+    <div class="menu-item dropdown">
+      <a href="#negocios">Negocios</a>
+      <div class="dropdown-content">
+          <a href="#">Restaurante</a>
+          <a href="#">Tiendas</a>
+          <div class="dropdown submenu">  <!-- Submenú aquí -->
+              <a href="#">Otros</a>
+              <div class="dropdown-content submenu-content">
+                  <a href="#">Papelería virtual</a>
+                  <a href="#">Subcategoría 2</a>
+                  <!-- Agrega más subcategorías según necesites -->
+              </div>
+          </div>
+      </div>
+  </div>
+  
+    
+
+    <!-- Servicios -->
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Servicios</a>
+      <div class="dropdown-content">
+        <a href="#plomería">Plomería</a>
+        <a href="#limpieza">Limpieza</a>
+        <a href="#jardineria">Jardinería</a>
+        <a href="#autolavado">Autolavado</a>
+        <a href="#medico">Médico a domicilio</a>
+        <a href="#clases">Clases</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#Multiservicios">Multiservicios</a>
+        <a href="#reciclaje">Reciclaje</a>
+      </div>
+    </div>
+
+    <!-- Noticias -->
+    <div class="dropdown ancho-especial">
+      <a href="#" class="dropbtn">Noticias</a>
+      <div class="dropdown-content">
+        <a href="#restaurantes">Eventos</a>
+        <a href="#tiendas">Actualizaciones</a>
+        <a href="#otros">Avisos</a>
+      </div>
+    </div>
+
+    <!-- Renta (Nueva Sección) -->
+  <div class="dropdown">
+    <a href="#" class="dropbtn">Renta</a>
+    <div class="dropdown-content">
+      <a href="#casas">Casas</a>
+      <a href="#locales">Locales</a>
+    </div>
+  </div>
+
+   <!-- Mascotas -->
+  <div class="dropdown">
+    <a href="#" class="dropbtn">Mascotas</a>
+    <div class="dropdown-content">
+      <a href="#extraviados">Mascotas extraviadas</a>
+      <a href="#veterinarias">Veterinarias</a>
+      <a href="#normativas">Normativas</a>
+    </div>
+  </div>
+
+
+    <!-- Contacto -->
+    <div class="menu-item">
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </div>
+
+  <!-- Contenido de la página -->
+  <div id="content">
+    <!-- Puedes agregar aquí el contenido de cada sección -->
+  </div>
+ 
+
+</body>
+</html>
